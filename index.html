@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <section class="video">
+        <video id="myVideo" controls>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </section>
+    <div class="dialogue">
+        <a href="#" onclick="showDialogueAndSetTime('A', 60, 10)">Option A</a> 
+        <a href="#" onclick="showDialogueAndSetTime('A', 120, 15)">Option B</a> 
+        <a href="#" onclick="showDialogueAndSetTime('A', 180, 20)">Option C</a> 
+    </div>    
+    <div class="dialogue" id="A">
+        <a href="#" onclick="showDialogueAndSetTime('X', 0, 10)">Option D</a>
+        <a href="#" onclick="showDialogueAndSetTime('Y', 60, 10)">Option E</a> 
+        <a href="#" onclick="showDialogueAndSetTime('Z', 60, 10)">Option F</a> 
+    </div>
+    <div class="dialogue" id="X">
+        <a href="#" onclick="showDialogueAndSetTime('X', 10, 10)">Option X</a>
+    </div>
+    <div class="dialogue" id="Y">
+        <a href="#" onclick="showDialogueAndSetTime('Y', 10, 10)">Option Y</a>
+    </div>
+    <div class="dialogue" id="Z">
+        <a href="#" onclick="showDialogueAndSetTime('Z', 10, 10)">Option Z</a>
+    </div>
+</body>
+</html>

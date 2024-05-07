@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+video {
+    height: 600px;
+}
+
+div {
+    justify-content: center;
+    display: flex;
+}
+
+a {
+    margin-right: 15px;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+#A, #B, #C , #X, #Y, #Z{
+    display: none;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+}
