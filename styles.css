@@ -1,9 +1,143 @@
-body {
-    margin: 0;
-    padding: 0;
+/* Sections */
+.section-1 {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7.5vh;
+
+    animation: heroBGZoomOut 10s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
-section {
+@keyframes heroBGZoomOut {
+    0%{
+        background-size: 200% 200%;
+    }
+    100%{
+        background-size: cover;
+    }
+}
+
+.bgVideoHero{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    opacity: 0;
+    animation: bgVideoFadeIn 5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+@keyframes bgVideoFadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.BGFilter_Section1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(48, 48, 48, 0.911);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.section-1 > h1{
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    font-size: 8vmin;
+    font-family: "headings";
+    transform: translateY(-5vmin);
+    opacity: 0;
+
+    animation: titleDropIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.section-1 > p{
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    font-size: 3vmin;
+    font-family: "pars";
+    width: 50%;
+    transform: translateY(-5vmin);
+    opacity: 0;
+
+    animation: descriptionDropIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.section-1 > a {
+    background-color: rgba(202, 25, 28, 0.753);
+    border-radius: 100vmin;
+    backdrop-filter: blur(1vmin);
+    color: white;
+    text-decoration: none;
+    font-size: 3vmin;
+    display: block;
+    width: fit-content;
+    text-align: center;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-top: 5vmin;
+    padding: 1vh 2vw;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transform: translateY(-5vmin);
+    opacity: 0;
+
+    animation: linkDropIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+@keyframes titleDropIn {
+    0%{
+        transform: translateY(-5vmin);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0vmin);
+        opacity: 1;
+    }
+}
+
+@keyframes descriptionDropIn {
+    0%{
+        transform: translateY(-5vmin);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0vmin);
+        opacity: 1;
+    }
+}
+
+@keyframes linkDropIn {
+    0%{
+        transform: translateY(-5vmin);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0vmin);
+        opacity: 1;
+    }
+}
+
+.section-1 > a:hover {
+    font-size: 3.1vmin;
+}
+
+.section-1 > a:active {
+    box-shadow: none;
+    scale: 0.95;
+}
+
+.video {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -11,28 +145,133 @@ section {
 
 video {
     height: 600px;
+    pointer-events: none;
 }
 
-div {
+.dialogue {
     justify-content: center;
     display: flex;
 }
 
-a {
+.dialogue a {
     margin-right: 15px;
     font-size: 30px;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    transition: font-size 0.3s ease;
 }
 
-a:hover {
-    color: blue;
-    text-decoration: underline;
+.dialogue a:hover {
+    font-size: 32px;
+    color: grey;
 }
 
-#A, #B, #C , #X, #Y, #Z{
+.dialogue a:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.dialogue a:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.dialogue a:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.dialogue {
     display: none;
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.intstory {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+.intstory .content {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.intstory .close {
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    transition: font-size 0.3s ease;
+}
+
+.intstory .choices {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.intstory .close:hover {
+    color: red;
+    font-size: 50px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button#videosize {
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 0; /* Remove default button padding */
+    cursor: pointer; /* Make sure it looks clickable */
+}
+
+.fullscreen-image {
+    width: auto;
+    height: 30px;
+    object-fit: cover;
+    border: none; /* Remove any default button border */
+    margin-right: 14px;
+    transition: height 0.3s ease; 
+}
+
+.fullscreen-image:hover {
+    height: 40px;
 }
